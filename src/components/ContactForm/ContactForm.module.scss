@@ -1,0 +1,13 @@
+.mainForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: inline-block;
+}
+
+.nameInput {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}

@@ -3,7 +3,7 @@ import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import s from './App.module.scss';
 
 class App extends Component {
@@ -47,22 +47,32 @@ class App extends Component {
     const filteredContacts = contacts.filter(contact =>
       contact.name.toLocaleLowerCase().includes(lowFilter),
     );
-    console.log(filteredContacts);
     return filteredContacts;
+  };
+
+  deleteContact = name => {
+    const { contacts } = this.state;
+
+    const restContacts = contacts.filter(contact => contact.name !== name);
+    console.log(restContacts);
+
+    this.setState({ contacts: restContacts });
   };
 
   render() {
     const filteredContacts = this.filterContacts();
-    console.log(this.state.filter);
 
     return (
       <div className={s.app}>
-        <img src={logo} className={s.appLogo} alt="logo" />
+        {/* <img src={logo} className={s.appLogo} alt="logo" /> */}
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.setFilter} />
-        <ContactList contacts={filteredContacts} />
+        <ContactList
+          contacts={filteredContacts}
+          onDelete={this.deleteContact}
+        />
       </div>
     );
   }

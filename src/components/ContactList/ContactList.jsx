@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types';
 
 export default function ContactList(props) {
-  const { contacts } = props;
+  const { contacts, onDelete } = props;
 
   return (
     <ul className="ContactList">
       {contacts.map(({ name, number, id }) => (
         <li className="item" key={id}>
-          {name}: {number}
+          <p>
+            {name}: {number}
+          </p>
+          <button type="button" onClick={() => onDelete(name)}>
+            delete
+          </button>
         </li>
       ))}
     </ul>

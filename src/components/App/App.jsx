@@ -18,6 +18,19 @@ class App extends Component {
   };
 
   addContact = data => {
+    const { contacts } = this.state;
+
+    const nameArray = contacts.reduce((allNames, contact) => {
+      allNames.push(contact.name);
+      return allNames;
+    }, []);
+
+    const isAdded = nameArray.includes(data.name);
+
+    if (isAdded) {
+      alert('contact is added');
+      return;
+    }
     this.setState(({ contacts }) => ({
       contacts: [...contacts, data],
     }));

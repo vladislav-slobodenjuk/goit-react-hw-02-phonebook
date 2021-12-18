@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 export default function ContactList(props) {
   const { contacts } = props;
-  console.log(props);
 
   return (
     <ul className="ContactList">

@@ -23,31 +23,33 @@ class App extends Component {
     }));
   };
 
-  filterContacts = data => {
-    console.log(data);
-    console.log(this.state);
+  setFilter = data => {
+    this.setState({ filter: data.target.value });
+  };
 
-    // let check = Boolean(this.state.filter);
-    // console.log(check);
+  filterContacts = () => {
+    const { filter, contacts } = this.state;
+    const lowFilter = filter.toLowerCase();
+
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLocaleLowerCase().includes(lowFilter),
+    );
+    console.log(filteredContacts);
+    return filteredContacts;
   };
 
   render() {
-    const ContactsArray = this.state.contacts;
+    const filteredContacts = this.filterContacts();
+    console.log(this.state.filter);
 
-    // console.log(this.state.filter);
-    // let check = Boolean(this.state.filter);
-    // console.log(check);
-
-    // console.log(this.state.name);
-    // console.log(this.state.contacts);
     return (
       <div className={s.app}>
         <img src={logo} className={s.appLogo} alt="logo" />
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
-        <Filter onChange={this.filterContacts} />
-        <ContactList contacts={ContactsArray} />
+        <Filter value={this.state.filter} onChange={this.setFilter} />
+        <ContactList contacts={filteredContacts} />
       </div>
     );
   }

@@ -50,7 +50,7 @@ export default class Form extends Component {
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            value={this.tel}
+            value={this.number}
             onChange={this.handleInputChange}
           />
         </label>
@@ -65,3 +65,15 @@ export default class Form extends Component {
 //   onChange: PropTypes.func,
 //   onSubmit: PropTypes.func,
 // };
+
+// ContactList.propTypes = {
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.exact({
+//       id: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.number.isRequired,
+//     }),
+//   ),
+// };
+
+// Ваоидация от props не работает, только от contacts после деструктуризвции

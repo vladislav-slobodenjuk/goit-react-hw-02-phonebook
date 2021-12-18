@@ -16,13 +16,15 @@ export default function ContactList(props) {
 }
 
 ContactList.propTypes = {
-  props: PropTypes.objectOf(
-    PropTypes.arrayOf(
-      PropTypes.exact({
-        name: PropTypes.string.isRequired,
-        number: PropTypes.number.isRequired,
-        id: PropTypes.string.isRequired,
-      }),
-    ),
-  ),
+  contacts: PropTypes.arrayOf(PropTypes.object),
 };
+
+// ContactList.propTypes = {
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.exact({
+//       id: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.number.isRequired,
+//     }),
+//   ),
+// };

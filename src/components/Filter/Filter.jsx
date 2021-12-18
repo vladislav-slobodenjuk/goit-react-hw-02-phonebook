@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
+import s from './Filter.module.scss';
 
 export default function Filter({ value, onChange }) {
   return (
-    <label>
-      Find contacts by name
+    <>
+      <label htmlFor="filter">Find contacts by name</label>
       <input
-        className="filter"
+        className={s.filterInput}
+        id="filter"
         type="text"
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -13,7 +15,7 @@ export default function Filter({ value, onChange }) {
         value={value}
         onChange={onChange}
       />
-    </label>
+    </>
   );
 }
 

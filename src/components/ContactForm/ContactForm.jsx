@@ -28,33 +28,33 @@ export default class Form extends Component {
   render() {
     return (
       <form className={s.mainForm} onSubmit={this.handleSubmit}>
-        <label>
-          Name
-          <input
-            className={s.nameInput}
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            value={this.name}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <label>
-          Number
-          <input
-            className={s.telInput}
-            type="tel"
-            name="number"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
-            value={this.number}
-            onChange={this.handleInputChange}
-          />
-        </label>
-        <button type="submit">Add contact</button>
+        <label htmlFor="name">Name</label>
+        <input
+          className={s.nameInput}
+          type="text"
+          name="name"
+          id="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+          value={this.name}
+          onChange={this.handleInputChange}
+        />
+        <label htmlFor="number">Number</label>
+        <input
+          className={s.telInput}
+          type="tel"
+          id="number"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          required
+          value={this.number}
+          onChange={this.handleInputChange}
+        />
+        <button className={s.submitButton} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }

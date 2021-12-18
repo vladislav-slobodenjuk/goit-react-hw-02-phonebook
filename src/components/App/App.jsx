@@ -1,7 +1,6 @@
 import { Component } from 'react/cjs/react.production.min';
-// import { nanoid } from 'nanoid';
-// import Section from 'components/Section/Section';
 import ContactForm from 'components/ContactForm/ContactForm';
+import ContactList from 'components/ContactList/ContactList';
 
 import logo from './logo.svg';
 import s from './App.module.scss';
@@ -15,10 +14,12 @@ class App extends Component {
     this.setState(({ contacts }) => ({
       contacts: [...contacts, data],
     }));
-    console.log(this.state);
+
+    // console.log(this.state.contacts);
   };
 
   render() {
+    const ContactsArray = this.state.contacts;
     // console.log(this.state.name);
     // console.log(this.state.contacts);
     return (
@@ -28,7 +29,7 @@ class App extends Component {
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
         {/* <Filter ... /> */}
-        {/* <ContactList ... /> */}
+        <ContactList contacts={ContactsArray} />
       </div>
     );
   }

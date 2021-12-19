@@ -3,7 +3,6 @@ import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
 import Filter from 'components/Filter/Filter';
 
-// import logo from './logo.svg';
 import s from './App.module.scss';
 
 class App extends Component {
@@ -19,14 +18,10 @@ class App extends Component {
   };
 
   addContact = data => {
-    const { contacts } = this.state;
-
-    const nameArray = contacts.reduce((allNames, contact) => {
-      allNames.push(contact.name);
-      return allNames;
-    }, []);
-
-    const isAdded = nameArray.includes(data.name);
+    const isAdded = Object.values(this.state.contacts).find(
+      contact => contact.name === data.name,
+    );
+    console.log(isAdded);
 
     if (isAdded) {
       alert('contact is added');

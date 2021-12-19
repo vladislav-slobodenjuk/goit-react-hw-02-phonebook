@@ -1,7 +1,6 @@
 .contactItem {
   display: flex;
   justify-content: space-between;
-  // flex-direction: column;
   &:not(:last-child) {
     margin-bottom: 10px;
   }

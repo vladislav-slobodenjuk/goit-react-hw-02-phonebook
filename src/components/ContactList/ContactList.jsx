@@ -26,6 +26,7 @@ export default function ContactList(props) {
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object),
+  onDelete: PropTypes.func,
 };
 
 // ContactList.propTypes = {
